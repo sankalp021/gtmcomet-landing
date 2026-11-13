@@ -48,7 +48,7 @@ const LINKS = [
   ["#rules", "Data rules"],
   ["#pricing", "Pricing"],
   ["#questions", "Questions"],
-  ["#apply", "Apply"],
+  ["#apply", "Early access"],
 ];
 
 export function Footer() {

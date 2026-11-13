@@ -1,5 +1,5 @@
 /**
- * Where design-partner applications go. Set these in Vercel (Project → Settings →
+ * Where early-access requests go. Set these in Vercel (Project → Settings →
  * Environment Variables) and redeploy. Until one is set, the application form
  * falls back to "copy the message".
  *

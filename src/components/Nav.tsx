@@ -97,7 +97,7 @@ export function Nav() {
             href="#apply"
             className={clsx("btn !min-h-10 !px-4 max-sm:hidden", night ? "btn-kesar" : "btn-ink")}
           >
-            Apply
+            Early access
           </a>
         </div>
       </div>

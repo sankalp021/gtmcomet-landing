@@ -243,7 +243,7 @@ export function Orbit() {
               </button>
             </div>
             <p className="datum mt-6 max-w-[24rem] text-[0.9375rem] leading-snug text-ice-400">
-              Steps 8 to 10 reach design partners after the prospecting core.
+              Steps 8 to 10 reach early-access teams after the prospecting core.
             </p>
           </div>
         </div>

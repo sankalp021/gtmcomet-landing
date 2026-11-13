@@ -26,8 +26,8 @@ const QA: [string, string][] = [
     "No. It keeps one timeline per account and a light pipeline. You can import and export CSV now. Zoho and HubSpot sync come next.",
   ],
   [
-    "What does being a design partner involve?",
-    "We set up your workspace with you and run the early weeks hands-on. We note your reply rate for the four weeks before you start, then measure against it. You tell us where the list or the drafts were wrong. Design partners are paying customers from the start.",
+    "What does early access involve?",
+    "We set up your workspace with you and run the early weeks hands-on. We note your reply rate for the four weeks before you start, then measure against it. You tell us where the list or the drafts were wrong. Early access is paid from the start.",
   ],
 ];
 

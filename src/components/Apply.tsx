@@ -19,7 +19,7 @@ function compose(name: string, site: string, where: Where, what: string) {
   const sells = what.trim()
     ? `We sell ${what.trim().replace(/\.$/, "")} to buyers in ${where}.`
     : `Our buyers are in ${where}.`;
-  return `Hi, this is ${name.trim()} from ${site.trim()}. ${sells} I'd like to be a GtmComet design partner.`;
+  return `Hi, this is ${name.trim()} from ${site.trim()}. ${sells} I'd like early access to GtmComet.`;
 }
 
 export function Apply() {
@@ -54,7 +54,7 @@ export function Apply() {
   const text = encodeURIComponent(message ?? "");
   const wa = CONTACT.whatsapp ? `https://wa.me/${CONTACT.whatsapp}?text=${text}` : null;
   const mail = CONTACT.email
-    ? `mailto:${CONTACT.email}?subject=${encodeURIComponent(`Design partner: ${site.trim()}`)}&body=${text}`
+    ? `mailto:${CONTACT.email}?subject=${encodeURIComponent(`Early access: ${site.trim()}`)}&body=${text}`
     : null;
 
   const field =
@@ -77,8 +77,8 @@ export function Apply() {
                 Be one of the first ten.
               </h2>
               <p className="prose-w mt-6 text-[1.1875rem] leading-[1.5] text-ice-200">
-                We are setting up the first ten teams ourselves, in India and
-                the UAE. Tell us what you sell and who buys it.
+                Early access is ten teams in India and the UAE, each set up
+                by us. Tell us what you sell and who buys it.
               </p>
 
               <ol className="mt-10 max-w-[30rem]">

@@ -40,10 +40,8 @@ export function Hero() {
 
       <div className="mx-auto flex max-w-[1240px] flex-col justify-end px-5 pt-2 pb-12 sm:px-8 min-[900px]:min-h-[100svh] min-[900px]:pt-28 min-[900px]:pb-20">
         <p className="enter-fade mb-5 flex items-center gap-2.5 text-[0.9375rem] text-ice-200 [--delay:60ms]">
-          <span className="relative flex h-2 w-2">
-            <span className="absolute inset-0 rounded-full bg-kesar-500" />
-          </span>
-          Opening to ten design partners in India and the UAE
+          <span aria-hidden className="mt-[0.45em] h-2 w-2 shrink-0 self-start rounded-full bg-kesar-500" />
+          Early access for ten teams in India and the UAE
         </p>
 
         <h1 className="voice enter max-w-[13ch] text-[clamp(2.75rem,5.6vw,5.25rem)] text-ice-50 [--dur:800ms] [--rise-blur:6px] [--rise:18px]">
@@ -76,7 +74,7 @@ export function Hero() {
             className="h-12 w-full min-w-0 shrink-0 rounded-[14px] sm:w-auto sm:flex-1 sm:shrink bg-ice-100/[0.08] px-4 text-ice-50 ring-1 ring-ice-100/20 ring-inset placeholder:text-ice-400 focus-visible:ring-2 focus-visible:ring-kesar-500 focus-visible:outline-none sm:bg-transparent sm:ring-0 sm:focus-visible:ring-0"
           />
           <button type="submit" className="btn btn-kesar">
-            Apply as a design partner
+            Get early access
           </button>
         </form>
         <p className="enter mt-4 text-[1rem] text-ice-300 [--delay:240ms] [--dur:700ms] [--rise:6px]">

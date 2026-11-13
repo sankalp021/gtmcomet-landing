@@ -17,8 +17,9 @@ export function Pricing() {
           <div>
             <Heading>Pay in rupees, dirhams or dollars.</Heading>
             <Lede>
-              Planned prices, {market === "in" ? "by card or UPI" : "by card"}. Design
-              partners help us test them, so expect them to move before launch.
+              Planned prices, {market === "in" ? "by card or UPI" : "by card"}. The
+              first ten teams help us test them, so expect them to move before
+              launch.
             </Lede>
           </div>
           <Segmented
