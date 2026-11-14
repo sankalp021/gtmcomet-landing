@@ -40,11 +40,11 @@ export type MapSignal = { city: string; what: string; where: string };
 
 export const MAP_SIGNALS: Record<Market, MapSignal[]> = {
   in: [
-    { city: "pnq", what: "Tender published", where: "GeM, Pune" },
-    { city: "amd", what: "New plant subsidiary filed", where: "MCA, Ahmedabad" },
-    { city: "blr", what: "Hiring a maintenance head", where: "Careers page, Bengaluru" },
-    { city: "del", what: "Tender published", where: "CPPP, Delhi NCR" },
-    { city: "bom", what: "Funding round announced", where: "Press release, Mumbai" },
+    { city: "pnq", what: "Hiring a maintenance head", where: "Careers page, Pune" },
+    { city: "amd", what: "Opening a second plant", where: "Company filing, Ahmedabad" },
+    { city: "blr", what: "Hiring a head of IT", where: "Careers page, Bengaluru" },
+    { city: "bom", what: "Raised a funding round", where: "Press release, Mumbai" },
+    { city: "del", what: "Opening a new office", where: "News, Delhi NCR" },
     { city: "maa", what: "Exhibiting next month", where: "Exhibitor list, Chennai" },
     { city: "hyd", what: "Switched software", where: "Hyderabad" },
     { city: "ccu", what: "Hiring a plant head", where: "Job board, Kolkata" },
@@ -94,63 +94,61 @@ export const LIST: Record<
         name: "Western Heavy Fabrication",
         place: "Pune",
         fit: 94,
-        signal: "Tender published",
-        source: "GeM",
+        signal: "Hiring a maintenance head",
+        source: "Careers page",
         seen: "2 days ago",
-        shelf: "Counts until the bid closes on 28 Nov",
+        shelf: "Counts for 19 more days",
         matchedBy: "Company website",
         detail:
-          "Annual maintenance contract for the Pune plant, published on the Government e-Marketplace.",
+          "The role's first goal is cutting unplanned downtime at the Pune plant.",
         contact: "Plant head, verified work email",
       },
       {
         name: "Kaveri Agro Machines",
         place: "Nashik",
         fit: 91,
-        signal: "New plant subsidiary filed",
-        source: "MCA filing",
+        signal: "Opening a second plant",
+        source: "Company filing",
         seen: "6 days ago",
         shelf: "Counts for 54 more days",
         matchedBy: "Registry number",
-        detail:
-          "A new wholly owned subsidiary registered for a second manufacturing unit.",
+        detail: "A new subsidiary was registered for a second manufacturing unit.",
         contact: "Maintenance manager, verified work email",
       },
       {
         name: "Tapi Textile Mills",
         place: "Surat",
         fit: 88,
-        signal: "Hiring a maintenance head",
-        source: "Careers page",
+        signal: "Raised a funding round",
+        source: "Press release",
         seen: "3 days ago",
-        shelf: "Counts for 18 more days",
+        shelf: "Counts for 27 more days",
         matchedBy: "Company website",
-        detail:
-          "The role lists preventive maintenance planning as its first responsibility.",
+        detail: "The release says the money goes into modernising the mill.",
         contact: "Plant head, WhatsApp number on company site",
       },
       {
         name: "Girnar Battery Works",
         place: "Rajkot",
         fit: 85,
-        signal: "Funding round announced",
-        source: "Press release",
-        seen: "9 days ago",
-        shelf: "Counts for 21 more days",
-        matchedBy: "Company website",
-        detail: "The release says the money goes into a second production line.",
+        signal: "Exhibiting next month",
+        source: "Exhibitor list",
+        seen: "1 day ago",
+        shelf: "Counts for 60 days around the event",
+        matchedBy: "Company name and city",
+        detail: "Listed as an exhibitor at an industrial automation show in December.",
         contact: "Operations head, verified work email",
       },
       {
         name: "Konkan Castings",
         place: "Kolhapur",
         fit: 83,
-        signal: "Exhibiting next month",
-        source: "Exhibitor list",
-        seen: "1 day ago",
-        shelf: "Counts for 60 days around the event",
-        matchedBy: "Company name and city",
-        detail: "Listed as an exhibitor at a foundry trade show in December.",
+        signal: "Switched software",
+        source: "Software data",
+        seen: "5 days ago",
+        shelf: "Counts for 40 more days",
+        matchedBy: "Company website",
+        detail: "The foundry moved its plant records to a new ERP this month.",
         contact: "Maintenance manager, verified work email",
       },
     ],
@@ -227,47 +225,47 @@ export const LIST: Record<
 
 export type Shelf = {
   name: string;
-  days: number | null; // null = until bid close
+  days: number | null; // null = until the bid closes
   label: string;
   source: Record<Market, string | null>; // null = not yet in this market
 };
 
 export const SHELF: Shelf[] = [
   {
-    name: "Government tender",
-    days: null,
-    label: "Until the bid closes",
-    source: { in: "GeM and CPPP", gulf: null },
+    name: "Hiring for a role you sell to",
+    days: 21,
+    label: "21 days",
+    source: { in: "Careers pages, job boards", gulf: "Careers pages, job boards" },
   },
   {
-    name: "Company registry filing",
-    days: 60,
-    label: "60 days",
-    source: { in: "MCA filings", gulf: null },
-  },
-  {
-    name: "Trade-show exhibitor",
-    days: 60,
-    label: "60 days around the event",
-    source: { in: "Public exhibitor lists", gulf: "Public exhibitor lists" },
-  },
-  {
-    name: "Software switch",
-    days: 45,
-    label: "45 days",
-    source: { in: "Licensed software data", gulf: "Licensed software data" },
-  },
-  {
-    name: "Funding round",
+    name: "Raised funding",
     days: 30,
     label: "30 days",
     source: { in: "News and press releases", gulf: "Regional news" },
   },
   {
-    name: "Hiring for a relevant role",
-    days: 21,
-    label: "21 days",
-    source: { in: "Careers pages, job feeds", gulf: "Careers pages, job feeds" },
+    name: "Expanding: new office, plant or entity",
+    days: 60,
+    label: "60 days",
+    source: { in: "Company filings and news", gulf: null },
+  },
+  {
+    name: "Exhibiting at a trade show",
+    days: 60,
+    label: "60 days around the event",
+    source: { in: "Public exhibitor lists", gulf: "Public exhibitor lists" },
+  },
+  {
+    name: "Switched software",
+    days: 45,
+    label: "45 days",
+    source: { in: "Licensed software data", gulf: "Licensed software data" },
+  },
+  {
+    name: "Public tender",
+    days: null,
+    label: "Until the bid closes",
+    source: { in: "GeM and CPPP", gulf: null },
   },
 ];
 
@@ -290,12 +288,12 @@ export const DRAFTS: Record<Market, { email: Draft; whatsapp: Draft }> = {
     email: {
       tab: "Email, English",
       to: "Plant head, Western Heavy Fabrication",
-      subject: "Your maintenance contract tender on GeM",
+      subject: "Your maintenance head opening in Pune",
       body: [
         [{ t: "Dear Mr. Kulkarni," }],
         [
           {
-            t: "I saw the tender your Pune plant published on GeM this week for an annual maintenance contract.",
+            t: "I saw you are hiring a maintenance head for the Pune plant, with cutting unplanned downtime as the first goal.",
             claim: 1,
           },
           { t: " " },
@@ -311,7 +309,7 @@ export const DRAFTS: Record<Market, { email: Draft; whatsapp: Draft }> = {
         ],
         [
           {
-            t: "Would 20 minutes next week be useful? I can show you how the scheduling works before your bid closes.",
+            t: "Would 20 minutes next week be useful? I can show you what your new hire could start with on day one.",
           },
         ],
         [{ t: "Regards," }, { t: "\nNeha" }],
@@ -321,8 +319,8 @@ export const DRAFTS: Record<Market, { email: Draft; whatsapp: Draft }> = {
         {
           n: 1,
           kind: "Signal",
-          title: "Tender published",
-          meta: "GeM, seen 12 Nov 2026. Bid closes 28 Nov",
+          title: "Hiring a maintenance head",
+          meta: "Careers page, seen 12 Nov 2026",
         },
         {
           n: 2,
@@ -349,7 +347,7 @@ export const DRAFTS: Record<Market, { email: Draft; whatsapp: Draft }> = {
         [
           { t: "Namaste Kulkarni ji, Neha this side. " },
           {
-            t: "Tuesday ko maine aapko ek email bheja tha, aapke GeM maintenance tender ke baare mein.",
+            t: "Tuesday ko maine aapko ek email bheja tha, Pune plant ke maintenance head role ke baare mein.",
             claim: 1,
           },
           { t: " " },
@@ -484,7 +482,7 @@ export const HANDOFF: Record<
     initials: "SK",
     me: "Neha",
     draft:
-      "Namaste Kulkarni ji, Neha this side. Tuesday ko maine aapko ek email bheja tha, aapke GeM maintenance tender ke baare mein. Is week 15 minute baat kar sakte hain?",
+      "Namaste Kulkarni ji, Neha this side. Tuesday ko maine aapko ek email bheja tha, Pune plant ke maintenance head role ke baare mein. Is week 15 minute baat kar sakte hain?",
     reply: "Haan, dekha tha. Thursday 4 baje call kar lijiye.",
     due: "Call, Thursday 4:00 pm",
   },
@@ -516,7 +514,7 @@ export const ORBIT: OrbitStep[] = [
   },
   {
     title: "Ideal customer and signals",
-    body: "You set countries, industries, company size and buyer roles. Public signals are ranked against them.",
+    body: "You set countries, industries, company size and buyer roles. Buying signals are ranked against them.",
     half: "before",
   },
   {

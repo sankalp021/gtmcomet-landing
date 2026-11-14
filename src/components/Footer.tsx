@@ -41,10 +41,11 @@ function Clocks() {
 }
 
 const LINKS = [
+  ["#how", "How it works"],
   ["#list", "The list"],
   ["#draft", "Drafts"],
   ["#handoff", "Sending"],
-  ["#orbit", "How it works"],
+  ["#orbit", "The account loop"],
   ["#rules", "Your market"],
   ["#pricing", "Pricing"],
   ["#questions", "Questions"],

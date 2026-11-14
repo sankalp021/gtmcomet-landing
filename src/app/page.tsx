@@ -4,6 +4,7 @@ import { DraftSection } from "@/components/DraftSection";
 import { Faq } from "@/components/Faq";
 import { Footer } from "@/components/Footer";
 import { HandoffSection } from "@/components/HandoffSection";
+import { HowItWorks } from "@/components/HowItWorks";
 import { Hero } from "@/components/Hero";
 import { ListSection } from "@/components/ListSection";
 import { Nav } from "@/components/Nav";
@@ -24,6 +25,7 @@ export default function Home() {
       <main>
         <Hero />
         <Dawn />
+        <HowItWorks />
         <ListSection />
         <DraftSection />
         <HandoffSection />

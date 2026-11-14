@@ -6,12 +6,20 @@ const QA: [string, string][] = [
     "Those tools message buyers on your behalf. GtmComet sends nothing. It does the research and the first draft, then hands over to you. Replies in these markets usually need your judgment, and automated WhatsApp at volume can get a number restricted.",
   ],
   [
+    "Which buying signals does it watch?",
+    "Companies hiring for roles you sell to, raising funding, opening an office, plant or new entity, exhibiting at a trade show, or switching software. In India it also reads public tenders. Every signal shows where it was seen and how long it stays relevant.",
+  ],
+  [
+    "How soon do I get a list?",
+    "Your first list comes out of the setup call, and a fresh one arrives every week after that.",
+  ],
+  [
     "Do I need to be on LinkedIn?",
-    "No. The list is built from tenders, registry filings, hiring, funding and exhibitor lists. If your buyer is on LinkedIn, you get a draft to paste there.",
+    "No. The list is built from hiring, funding, expansion, trade shows and software switches. If your buyer is on LinkedIn, you get a draft to paste there.",
   ],
   [
     "Where do the contacts come from?",
-    "From licensed data providers. Each detail shows where it came from, when, and whether it was verified.",
+    "From licensed data providers, and checked before you see them. Each email and phone number shows where it came from and when it was verified.",
   ],
   [
     "What access do you need to my inbox?",

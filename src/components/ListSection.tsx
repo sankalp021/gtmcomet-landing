@@ -17,9 +17,9 @@ export function ListSection() {
           <div className="lg:col-span-5 lg:pt-6">
             <Heading>Twenty-five accounts. A reason to write to each.</Heading>
             <Lede>
-              Every account on the list carries a why-now card: the public event
-              that put it there, where it was seen, and how long it stays
-              relevant. No card, no place on the list.
+              Every account comes with its reason: the buying signal that put
+              it there, where it was seen, and how long it stays relevant. No
+              reason, no place on the list.
             </Lede>
             <dl className="mt-9 grid max-w-[30rem] grid-cols-[auto_1fr] gap-x-5 gap-y-3 border-t border-ink/10 pt-6 text-[1rem]">
               <dt className="datum text-ink-3">Ideal customer</dt>
@@ -33,6 +33,13 @@ export function ListSection() {
               <dt className="datum text-ink-3">Starts from</dt>
               <dd className="font-medium">Your website, plus any deck or case study you add</dd>
             </dl>
+            <div className="mt-9 max-w-[30rem] border-t border-ink/10 pt-6">
+              <h3 className="voice-sm text-[1.1875rem]">Sharper every week</h3>
+              <p className="mt-2 text-[1.0625rem] leading-[1.5] text-ink-2">
+                Mark a pick good or not a fit, and replies count too. Next
+                week&rsquo;s list leans toward the accounts that answered.
+              </p>
+            </div>
           </div>
 
           <div className="lg:col-span-7">

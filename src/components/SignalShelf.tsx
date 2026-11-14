@@ -36,10 +36,10 @@ export function SignalShelf() {
   return (
     <div className="mt-28 grid gap-x-12 gap-y-10 sm:mt-36 lg:grid-cols-12">
       <div className="lg:col-span-4">
-        <h3 className="voice text-[clamp(1.6rem,2.7vw,2.25rem)]">Signals have a shelf life.</h3>
+        <h3 className="voice text-[clamp(1.6rem,2.7vw,2.25rem)]">Six buying signals, each with a shelf life.</h3>
         <p className="prose-w mt-4 text-[1.0625rem] leading-[1.55] text-ink-2">
-          A funding round is a reason to write for about a month. A tender is a
-          reason until the bid closes. When a signal goes stale it stops counting
+          A funding round is a reason to write for about a month. A job post,
+          about three weeks. When a signal goes stale it stops counting
           toward the account&rsquo;s rank, so last quarter&rsquo;s news never reaches this
           week&rsquo;s list.
         </p>

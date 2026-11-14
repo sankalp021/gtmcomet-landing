@@ -10,7 +10,7 @@ WhatsApp and email. The page has one job: get them to ask for early access.
 ## Concept
 
 One night across the India–Gulf corridor. The hero is the corridor at night,
-with public signals (tenders, filings, job posts) switching on like city lights.
+with buying signals (hiring, funding, expansion) switching on like city lights.
 The page then passes through dawn into daylight, where the product is shown,
 returns to night for the account orbit, and ends at dusk with the application.
 

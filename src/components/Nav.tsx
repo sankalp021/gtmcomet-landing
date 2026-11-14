@@ -7,9 +7,9 @@ import { Segmented } from "./Segmented";
 import { setMarket, useMarket } from "@/lib/market";
 
 const LINKS = [
+  { href: "#how", label: "How it works" },
   { href: "#list", label: "The list" },
   { href: "#draft", label: "Drafts" },
-  { href: "#orbit", label: "How it works" },
   { href: "#rules", label: "Your market" },
   { href: "#pricing", label: "Pricing" },
 ];

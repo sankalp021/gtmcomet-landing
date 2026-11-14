@@ -77,8 +77,10 @@ export function Apply() {
                 Be one of the first ten.
               </h2>
               <p className="prose-w mt-6 text-[1.1875rem] leading-[1.5] text-ice-200">
-                Early access is ten teams in India and the UAE, each set up
-                by us. Tell us what you sell and who buys it.
+                Somewhere in your market this week, a company is hiring for
+                the problem you solve. Early access is ten teams in India and
+                the UAE, each set up by us. Tell us what you sell and who buys
+                it.
               </p>
 
               <ol className="mt-10 max-w-[30rem]">

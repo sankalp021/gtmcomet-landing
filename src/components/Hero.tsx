@@ -2,15 +2,8 @@
 
 import { CorridorMap } from "./CorridorMap";
 import { setSite, useSite } from "@/lib/apply";
-import { useMarket } from "@/lib/market";
-
-const READS = {
-  in: "tenders, company filings and job posts",
-  gulf: "exhibitor lists, funding news and job posts",
-};
 
 export function Hero() {
-  const market = useMarket();
   const site = useSite();
 
   function start(e: React.FormEvent) {
@@ -49,7 +42,7 @@ export function Hero() {
         </h1>
 
         <p className="enter mt-6 max-w-[35rem] text-[1.125rem] leading-[1.5] text-pretty text-ice-200 [--delay:110ms] [--dur:700ms] [--rise:12px] sm:text-[1.1875rem]">
-          <span className="max-sm:hidden">GtmComet is a sales copilot for founder-led B2B teams in India and the Gulf. It reads {READS[market]}, ranks</span>
+          <span className="max-sm:hidden">GtmComet is a sales copilot for founder-led B2B teams in India and the Gulf. It spots companies that are hiring, raising money or expanding, ranks</span>
           <span className="sm:hidden">A sales copilot for founder-led B2B teams in India and the Gulf. It ranks</span>{" "}
           the accounts worth your time, drafts the first message in your voice, and leaves the sending to you.
         </p>

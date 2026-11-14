@@ -6,7 +6,7 @@ const MARKETS: { name: string; next?: boolean; rows: [string, string][] }[] = [
   {
     name: "India",
     rows: [
-      ["Reads", "GeM and CPPP tenders, MCA filings, job posts, funding news, exhibitor lists."],
+      ["Reads", "Job posts, funding news, company filings, exhibitor lists, software changes, and public tenders."],
       ["Writes in", "English and Hinglish."],
       ["Calendar", "Follow-ups skip public holidays."],
       ["You pay in", "Rupees, by card or UPI."],
@@ -15,7 +15,7 @@ const MARKETS: { name: string; next?: boolean; rows: [string, string][] }[] = [
   {
     name: "UAE",
     rows: [
-      ["Reads", "Exhibitor lists, funding news and job posts. Tenders and registries are next."],
+      ["Reads", "Job posts, funding news, exhibitor lists and software changes. Company filings are next."],
       ["Writes in", "English. Arabic is next."],
       ["Calendar", "Follow-ups skip the Saturday and Sunday weekend, and public holidays."],
       ["You pay in", "US dollars, by card."],
