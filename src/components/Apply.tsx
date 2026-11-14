@@ -11,7 +11,7 @@ type Where = "India" | "the UAE" | "India and the Gulf";
 
 const STEPS = [
   "You send us the message this form writes.",
-  "We set up your workspace with you, and note your reply rate for the last four weeks.",
+  "We set up your workspace with you, on a call.",
   "Your first ranked list arrives, with drafts.",
 ];
 

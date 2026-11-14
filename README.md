@@ -46,7 +46,7 @@ With neither set, the form falls back to a "Copy message" button.
 - **Sample data is made up.** Company names, people and signals are invented
   and labelled as samples on the page. Keep it that way; do not add real
   customer names, logos or results until they exist.
-- **"next" and "later" tags are promises.** They mark what is not live yet
+- **"next" tags are promises.** They mark what is not live yet
   (Arabic, Saudi Arabia, CRM sync, post-sale steps). Remove a tag only when the
   thing ships.
 - **Prices are the planned ones** and are described as such on the page.

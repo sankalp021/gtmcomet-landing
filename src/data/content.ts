@@ -46,14 +46,14 @@ export const MAP_SIGNALS: Record<Market, MapSignal[]> = {
     { city: "del", what: "Tender published", where: "CPPP, Delhi NCR" },
     { city: "bom", what: "Funding round announced", where: "Press release, Mumbai" },
     { city: "maa", what: "Exhibiting next month", where: "Exhibitor list, Chennai" },
-    { city: "hyd", what: "Tech stack changed", where: "Hyderabad" },
+    { city: "hyd", what: "Switched software", where: "Hyderabad" },
     { city: "ccu", what: "Hiring a plant head", where: "Job board, Kolkata" },
   ],
   gulf: [
     { city: "dxb", what: "On the GITEX exhibitor list", where: "Dubai" },
     { city: "auh", what: "Hiring an IT head", where: "Careers page, Abu Dhabi" },
     { city: "dxb", what: "Funding round announced", where: "Regional news, Dubai" },
-    { city: "rak", what: "Tech stack changed", where: "Ras Al Khaimah" },
+    { city: "rak", what: "Switched software", where: "Ras Al Khaimah" },
     { city: "aln", what: "Hiring an operations head", where: "Job board, Al Ain" },
   ],
 };
@@ -77,7 +77,7 @@ export type Account = {
   source: string;
   seen: string;
   shelf: string;
-  confidence: number;
+  matchedBy: string;
   detail: string;
   contact: string;
 };
@@ -98,7 +98,7 @@ export const LIST: Record<
         source: "GeM",
         seen: "2 days ago",
         shelf: "Counts until the bid closes on 28 Nov",
-        confidence: 0.93,
+        matchedBy: "Company website",
         detail:
           "Annual maintenance contract for the Pune plant, published on the Government e-Marketplace.",
         contact: "Plant head, verified work email",
@@ -111,7 +111,7 @@ export const LIST: Record<
         source: "MCA filing",
         seen: "6 days ago",
         shelf: "Counts for 54 more days",
-        confidence: 0.9,
+        matchedBy: "Registry number",
         detail:
           "A new wholly owned subsidiary registered for a second manufacturing unit.",
         contact: "Maintenance manager, verified work email",
@@ -124,7 +124,7 @@ export const LIST: Record<
         source: "Careers page",
         seen: "3 days ago",
         shelf: "Counts for 18 more days",
-        confidence: 0.96,
+        matchedBy: "Company website",
         detail:
           "The role lists preventive maintenance planning as its first responsibility.",
         contact: "Plant head, WhatsApp number on company site",
@@ -137,7 +137,7 @@ export const LIST: Record<
         source: "Press release",
         seen: "9 days ago",
         shelf: "Counts for 21 more days",
-        confidence: 0.88,
+        matchedBy: "Company website",
         detail: "The release says the money goes into a second production line.",
         contact: "Operations head, verified work email",
       },
@@ -149,7 +149,7 @@ export const LIST: Record<
         source: "Exhibitor list",
         seen: "1 day ago",
         shelf: "Counts for 60 days around the event",
-        confidence: 0.84,
+        matchedBy: "Company name and city",
         detail: "Listed as an exhibitor at a foundry trade show in December.",
         contact: "Maintenance manager, verified work email",
       },
@@ -167,7 +167,7 @@ export const LIST: Record<
         source: "Exhibitor list",
         seen: "1 day ago",
         shelf: "Counts for 60 days around the event",
-        confidence: 0.92,
+        matchedBy: "Company website",
         detail: "Listed for the first time, in the logistics technology hall.",
         contact: "IT head, verified work email",
       },
@@ -179,7 +179,7 @@ export const LIST: Record<
         source: "Careers page",
         seen: "4 days ago",
         shelf: "Counts for 17 more days",
-        confidence: 0.95,
+        matchedBy: "Company website",
         detail: "The post asks for someone to consolidate three office networks.",
         contact: "Operations head, verified work email",
       },
@@ -191,7 +191,7 @@ export const LIST: Record<
         source: "Regional news",
         seen: "8 days ago",
         shelf: "Counts for 22 more days",
-        confidence: 0.89,
+        matchedBy: "Company website",
         detail: "The round is reported as funding a second warehouse.",
         contact: "IT head, verified work email",
       },
@@ -199,11 +199,11 @@ export const LIST: Record<
         name: "Liwa Building Materials",
         place: "Sharjah",
         fit: 84,
-        signal: "Tech stack changed",
-        source: "Technographics",
+        signal: "Switched email provider",
+        source: "Software data",
         seen: "5 days ago",
         shelf: "Counts for 40 more days",
-        confidence: 0.86,
+        matchedBy: "Company website",
         detail: "The company moved its email to a new provider this month.",
         contact: "Operations head, WhatsApp number on company site",
       },
@@ -215,7 +215,7 @@ export const LIST: Record<
         source: "Job board",
         seen: "2 days ago",
         shelf: "Counts for 19 more days",
-        confidence: 0.83,
+        matchedBy: "Company name and city",
         detail: "The role reports to the managing director and owns vendors.",
         contact: "Managing director, verified work email",
       },
@@ -240,7 +240,7 @@ export const SHELF: Shelf[] = [
     source: { in: "GeM and CPPP", gulf: null },
   },
   {
-    name: "Registry event",
+    name: "Company registry filing",
     days: 60,
     label: "60 days",
     source: { in: "MCA filings", gulf: null },
@@ -252,10 +252,10 @@ export const SHELF: Shelf[] = [
     source: { in: "Public exhibitor lists", gulf: "Public exhibitor lists" },
   },
   {
-    name: "Tech-stack change",
+    name: "Software switch",
     days: 45,
     label: "45 days",
-    source: { in: "Licensed technographics", gulf: "Licensed technographics" },
+    source: { in: "Licensed software data", gulf: "Licensed software data" },
   },
   {
     name: "Funding round",
@@ -322,7 +322,7 @@ export const DRAFTS: Record<Market, { email: Draft; whatsapp: Draft }> = {
           n: 1,
           kind: "Signal",
           title: "Tender published",
-          meta: "GeM, seen 12 Nov 2026. Bid closes 28 Nov. Match 0.93",
+          meta: "GeM, seen 12 Nov 2026. Bid closes 28 Nov",
         },
         {
           n: 2,
@@ -344,7 +344,7 @@ export const DRAFTS: Record<Market, { email: Draft; whatsapp: Draft }> = {
     whatsapp: {
       tab: "WhatsApp, Hinglish",
       to: "Plant head, Western Heavy Fabrication",
-      note: "Offered because an email touch is already logged. This workspace is warm-first.",
+      note: "Offered because you have already emailed this person. WhatsApp comes second by default.",
       body: [
         [
           { t: "Namaste Kulkarni ji, Neha this side. " },
@@ -367,8 +367,8 @@ export const DRAFTS: Record<Market, { email: Draft; whatsapp: Draft }> = {
       evidence: [
         {
           n: 1,
-          kind: "Earlier touch",
-          title: "Email handed off and sent",
+          kind: "Earlier message",
+          title: "Email sent by you",
           meta: "Tue 10 Nov, 10:42. Matched from your Gmail",
         },
         {
@@ -418,7 +418,7 @@ export const DRAFTS: Record<Market, { email: Draft; whatsapp: Draft }> = {
           n: 1,
           kind: "Signal",
           title: "On the GITEX exhibitor list",
-          meta: "Public exhibitor list, seen 13 Nov 2026. Match 0.92",
+          meta: "Public exhibitor list, seen 13 Nov 2026",
         },
         {
           n: 2,
@@ -440,7 +440,7 @@ export const DRAFTS: Record<Market, { email: Draft; whatsapp: Draft }> = {
     whatsapp: {
       tab: "WhatsApp, English",
       to: "IT head, Marsa Cold Chain",
-      note: "Cold WhatsApp is switched on in this workspace. 6 of today's 20 new chats used.",
+      note: "Cold WhatsApp is switched on for this team, with a daily limit. 6 new chats used today.",
       body: [
         [
           { t: "Hello Ms. Rahman, Rahul here. " },
@@ -456,8 +456,8 @@ export const DRAFTS: Record<Market, { email: Draft; whatsapp: Draft }> = {
       evidence: [
         {
           n: 1,
-          kind: "Earlier touch",
-          title: "Email handed off and sent",
+          kind: "Earlier message",
+          title: "Email sent by you",
           meta: "Mon 9 Nov, 09:15. Matched from your Outlook",
         },
         {
@@ -511,12 +511,12 @@ export type OrbitStep = {
 export const ORBIT: OrbitStep[] = [
   {
     title: "Paste your website",
-    body: "You get an offer summary, an ICP draft and three pitch angles. Edit any of them.",
+    body: "You get a summary of what you sell, a first guess at your ideal customer, and a few angles to pitch. Edit any of them.",
     half: "before",
   },
   {
-    title: "ICP and signals",
-    body: "Countries, industries, company size, buyer roles, exclusions. Public signals are ranked against it.",
+    title: "Ideal customer and signals",
+    body: "You set countries, industries, company size and buyer roles. Public signals are ranked against them.",
     half: "before",
   },
   {
@@ -525,18 +525,18 @@ export const ORBIT: OrbitStep[] = [
     half: "before",
   },
   {
-    title: "Grounded draft",
-    body: "One draft per contact and channel. Every personal line links to its evidence.",
+    title: "Draft with sources",
+    body: "One draft per person and channel. Every personal line links to its evidence.",
     half: "before",
   },
   {
     title: "You send",
-    body: "One tap opens WhatsApp, Gmail or Outlook with the draft in place. The touch is logged.",
+    body: "One tap opens WhatsApp, Gmail or Outlook with the draft in place. It is noted on the account.",
     half: "before",
   },
   {
-    title: "Outcome captured",
-    body: "Replies are matched from your inbox. On WhatsApp, one tap sets the status.",
+    title: "Reply logged",
+    body: "Replies are matched from your inbox. On WhatsApp, one tap records what happened.",
     half: "after",
   },
   {
@@ -545,20 +545,20 @@ export const ORBIT: OrbitStep[] = [
     half: "after",
   },
   {
-    title: "Onboarding and health",
+    title: "Onboarding",
     body: "A checklist starts and the renewal date goes on the calendar.",
     half: "after",
     next: true,
   },
   {
-    title: "Renewal",
-    body: "Three weeks without contact marks the account quiet and a check-in draft appears.",
+    title: "Check-ins and renewal",
+    body: "When a customer goes quiet, a check-in draft appears, well before the renewal date does.",
     half: "after",
     next: true,
   },
   {
-    title: "Referral and lookalikes",
-    body: "A healthy account at day 90 prompts a referral ask, and seeds accounts that look like it.",
+    title: "Referrals",
+    body: "A happy customer prompts a referral ask, and companies like them move up your list.",
     half: "after",
     next: true,
   },
@@ -581,7 +581,7 @@ export const PLANS: Plan[] = [
       in: { value: 0, currency: "INR", unit: "" },
       gulf: { value: 0, currency: "USD", unit: "" },
     },
-    includes: [{ t: "50 contacts a month" }, { t: "1 mailbox" }, { t: "Pipeline" }],
+    includes: [{ t: "50 contacts a month" }, { t: "1 mailbox" }, { t: "A simple deal pipeline" }],
   },
   {
     name: "Founder",
@@ -593,7 +593,7 @@ export const PLANS: Plan[] = [
     includes: [
       { t: "1 seat" },
       { t: "WhatsApp, email and LinkedIn drafts" },
-      { t: "A monthly cap on contacts and phone lookups" },
+      { t: "A monthly allowance of verified contacts and phone numbers" },
     ],
   },
   {
@@ -604,8 +604,8 @@ export const PLANS: Plan[] = [
       gulf: { value: 79, currency: "USD", unit: "per seat, a month", aside: "about AED 290" },
     },
     includes: [
-      { t: "Shared daily queue" },
-      { t: "After-the-deal features", next: true },
+      { t: "A shared daily list" },
+      { t: "Onboarding and renewal reminders", next: true },
       { t: "Zoho and HubSpot sync", next: true },
     ],
   },

@@ -9,8 +9,8 @@ import { setMarket, useMarket } from "@/lib/market";
 const LINKS = [
   { href: "#list", label: "The list" },
   { href: "#draft", label: "Drafts" },
-  { href: "#orbit", label: "After the deal" },
-  { href: "#rules", label: "Data rules" },
+  { href: "#orbit", label: "How it works" },
+  { href: "#rules", label: "Your market" },
   { href: "#pricing", label: "Pricing" },
 ];
 

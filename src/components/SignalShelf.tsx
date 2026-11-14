@@ -39,14 +39,14 @@ export function SignalShelf() {
         <h3 className="voice text-[clamp(1.6rem,2.7vw,2.25rem)]">Signals have a shelf life.</h3>
         <p className="prose-w mt-4 text-[1.0625rem] leading-[1.55] text-ink-2">
           A funding round is a reason to write for about a month. A tender is a
-          reason until the bid closes. When a signal goes stale it stops lifting
-          the account, so last quarter&rsquo;s news never reaches this
+          reason until the bid closes. When a signal goes stale it stops counting
+          toward the account&rsquo;s rank, so last quarter&rsquo;s news never reaches this
           week&rsquo;s list.
         </p>
         <p className="prose-w mt-4 text-[1.0625rem] leading-[1.55] text-ink-2">
-          Signals are matched to a company by domain first, then registry
-          number, then name and country. A weak match is shown as possible and
-          kept out of the top twenty-five.
+          Each signal is tied to the right company by its website or registry
+          number, not just a similar name. If the match is shaky, the account
+          stays off your list.
         </p>
       </div>
 
@@ -136,7 +136,7 @@ export function SignalShelf() {
           })}
         </ul>
         <p className="datum mt-3 text-[0.875rem] text-ink-3">
-          Starting windows. They are tuned as outcomes come in.
+          Starting values. They get adjusted as we learn which signals lead to replies.
         </p>
       </div>
     </div>

@@ -15,11 +15,10 @@ export function Pricing() {
       <Wrap>
         <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
           <div>
-            <Heading>Pay in rupees, dirhams or dollars.</Heading>
+            <Heading>Priced for where you sell.</Heading>
             <Lede>
-              Planned prices, {market === "in" ? "by card or UPI" : "by card"}. The
-              first ten teams help us test them, so expect them to move before
-              launch.
+              Planned prices, {market === "in" ? "by card or UPI" : "by card"}. They
+              may change before launch.
             </Lede>
           </div>
           <Segmented
@@ -89,8 +88,7 @@ export function Pricing() {
           })}
         </div>
         <p className="datum mt-4 max-w-[46rem] text-[0.9375rem] leading-snug text-ink-3">
-          Contact lookups beyond a plan&rsquo;s cap are billed at cost plus a
-          margin.
+          Extra contact lookups are charged as you use them.
           {market === "gulf" ? " Dirham amounts are approximate." : ""}
         </p>
       </Wrap>

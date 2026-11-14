@@ -51,11 +51,11 @@ export function DraftSection() {
             ],
             [
               "Written like you",
-              "Drafts are grounded in your own site, deck and case studies. Your edits are saved, line by line.",
+              "Drafts are built from your own site, deck and case studies, so they read like your company and not like a template.",
             ],
             [
               "In the language they answer in",
-              "English and Hinglish today. Arabic arrives with the Saudi launch.",
+              "English and Hinglish today. Arabic is next.",
             ],
           ].map(([t, d]) => (
             <div key={t} className="border-t border-ink/15 pt-5">

@@ -22,7 +22,7 @@ export function ListSection() {
               relevant. No card, no place on the list.
             </Lede>
             <dl className="mt-9 grid max-w-[30rem] grid-cols-[auto_1fr] gap-x-5 gap-y-3 border-t border-ink/10 pt-6 text-[1rem]">
-              <dt className="datum text-ink-3">Your ICP</dt>
+              <dt className="datum text-ink-3">Ideal customer</dt>
               <dd key={`icp-${market}`} className="swap font-medium">
                 {data.icp}
               </dd>
@@ -31,7 +31,7 @@ export function ListSection() {
                 {data.roles}
               </dd>
               <dt className="datum text-ink-3">Starts from</dt>
-              <dd className="font-medium">Your website and two case studies</dd>
+              <dd className="font-medium">Your website, plus any deck or case study you add</dd>
             </dl>
           </div>
 
@@ -107,11 +107,11 @@ function Ranked({ accounts }: { accounts: Account[] }) {
                         <dd className="font-medium">{a.seen}</dd>
                       </div>
                       <div>
-                        <dt className="text-ink-3">Match</dt>
-                        <dd className="font-medium">{a.confidence.toFixed(2)}</dd>
+                        <dt className="text-ink-3">Matched by</dt>
+                        <dd className="font-medium">{a.matchedBy}</dd>
                       </div>
                       <div>
-                        <dt className="text-ink-3">Route</dt>
+                        <dt className="text-ink-3">Contact</dt>
                         <dd className="font-medium">{a.contact}</dd>
                       </div>
                     </dl>

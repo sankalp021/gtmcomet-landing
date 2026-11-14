@@ -6,16 +6,15 @@ import { HANDOFF } from "@/data/content";
 import { useMarket } from "@/lib/market";
 import { Heading, Lede, SampleNote, Wrap } from "./Section";
 
-const STATUSES = ["Replied", "Positive", "Meeting", "Not interested"] as const;
+const STATUSES = ["Replied", "Interested", "Meeting booked", "Not interested"] as const;
 type Status = (typeof STATUSES)[number];
 
-const TOOLS: { name: string; how: string; next?: "next" | "later" }[] = [
+const TOOLS: { name: string; how: string; next?: boolean }[] = [
   { name: "WhatsApp", how: "Opens a chat with the draft in the message box" },
   { name: "Gmail and Outlook", how: "Opens compose with the draft; read-only access matches replies" },
   { name: "LinkedIn", how: "Copies the draft for you to paste" },
   { name: "Your CRM", how: "CSV in and out", },
-  { name: "Zoho and HubSpot", how: "Two-way sync", next: "next" },
-  { name: "Claude and ChatGPT", how: "Ask about accounts, signals and drafts", next: "later" },
+  { name: "Zoho and HubSpot", how: "Accounts and deals kept in sync", next: true },
 ];
 
 export function HandoffSection() {
@@ -35,20 +34,20 @@ export function HandoffSection() {
 
             <dl className="mt-9 space-y-6">
               <div className="border-t border-ink/15 pt-5">
-                <dt className="voice-sm text-[1.1875rem]">Warm first on WhatsApp</dt>
+                <dt className="voice-sm text-[1.1875rem]">It protects your number</dt>
                 <dd className="prose-w mt-2 text-[1.0625rem] leading-[1.5] text-ink-2">
-                  By default a WhatsApp draft is offered only after an email or
-                  LinkedIn touch, an inbound lead, or an existing relationship.
-                  Cold WhatsApp is a switch you turn on yourself, with a daily
-                  cap.
+                  WhatsApp is suggested once the buyer has a reason to know
+                  you: you have emailed, they wrote in, or you have dealt with
+                  them before. Cold WhatsApp is yours to switch on, with a
+                  daily limit so your number is not flagged.
                 </dd>
               </div>
               <div className="border-t border-ink/15 pt-5">
                 <dt className="voice-sm text-[1.1875rem]">Replies log themselves</dt>
                 <dd className="prose-w mt-2 text-[1.0625rem] leading-[1.5] text-ink-2">
                   Connect Gmail or Outlook and replies are matched to the right
-                  contact. On WhatsApp, one tap sets the outcome. Anything left
-                  unmarked for two days comes back to your queue.
+                  person. On WhatsApp, one tap records what happened. If you
+                  forget, it comes back to your list.
                 </dd>
               </div>
             </dl>
@@ -57,7 +56,7 @@ export function HandoffSection() {
           <div className="lg:col-span-7">
             <Demo key={market} />
             <SampleNote>
-              A working sketch of the handoff. Press the buttons; nothing leaves this page.
+              Try it. Press the buttons; nothing leaves this page.
             </SampleNote>
           </div>
         </div>
@@ -72,7 +71,7 @@ export function HandoffSection() {
               <li key={t.name} className="border-b border-ink/10 py-4">
                 <p className="flex items-baseline gap-2 text-[1.0625rem] font-[560]">
                   {t.name}
-                  {t.next && <NextTag label={t.next} />}
+                  {t.next && <NextTag />}
                 </p>
                 <p className="mt-0.5 text-[1rem] leading-[1.45] text-ink-2">{t.how}</p>
               </li>
@@ -84,7 +83,7 @@ export function HandoffSection() {
   );
 }
 
-export function NextTag({ night, label = "next" }: { night?: boolean; label?: string }) {
+export function NextTag({ night }: { night?: boolean }) {
   return (
     <span
       className={clsx(
@@ -92,7 +91,7 @@ export function NextTag({ night, label = "next" }: { night?: boolean; label?: st
         night ? "bg-ice-100/12 text-ice-200" : "bg-ink/[0.07] text-ink-2",
       )}
     >
-      {label}
+      next
     </span>
   );
 }
@@ -143,7 +142,7 @@ function Demo() {
 
           {step >= 1 && (
             <ol className="datum space-y-2 text-[0.9375rem]">
-              <Log on>Handed off at 10:42. Touch logged.</Log>
+              <Log on>Opened in WhatsApp at 10:42. Noted on the account.</Log>
               <Log on={step >= 2} wait="Waiting for you to send it">
                 Sent by you.
               </Log>
@@ -157,7 +156,7 @@ function Demo() {
 
           {step === 3 && (
             <div className="enter mt-4 [--dur:300ms] [--rise:6px]">
-              <p className="datum text-[0.875rem] text-ink-3">One tap to log the outcome</p>
+              <p className="datum text-[0.875rem] text-ink-3">One tap to record what happened</p>
               <div className="mt-2 flex flex-wrap gap-2">
                 {STATUSES.map((s) => (
                   <button
@@ -179,10 +178,8 @@ function Demo() {
           {step === 4 && status && (
             <div className="enter mt-4 [--dur:300ms] [--rise:6px]">
               <p className="rounded-[12px] bg-reply-100 px-3.5 py-3 text-[1rem] leading-[1.45] text-reply-700">
-                <span className="font-semibold">Logged: {status}.</span>{" "}
-                {status === "Not interested"
-                  ? "No more drafts will be offered for this contact."
-                  : `Next on your queue: ${d.due}.`}
+                <span className="font-semibold">Logged: {status}.</span>
+                {status !== "Not interested" && ` Next on your list: ${d.due}.`}
               </p>
               <button
                 type="button"

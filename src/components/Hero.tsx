@@ -5,7 +5,7 @@ import { setSite, useSite } from "@/lib/apply";
 import { useMarket } from "@/lib/market";
 
 const READS = {
-  in: "tenders, registry filings and job posts",
+  in: "tenders, company filings and job posts",
   gulf: "exhibitor lists, funding news and job posts",
 };
 

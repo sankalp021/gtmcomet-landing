@@ -8,7 +8,7 @@ import { Wrap } from "./Section";
 
 /*
  * The account lifecycle as a comet's orbit: ten steps, one loop.
- * The ICP sits at the focus. The comet's tail always points away from it,
+ * The ideal customer sits at the focus. The comet's tail always points away from it,
  * as a real comet's tail points away from the sun.
  */
 
@@ -108,12 +108,13 @@ export function Orbit() {
       <Wrap>
         <div className="max-w-[46rem]">
           <h2 className="voice text-[clamp(2rem,4.2vw,3.5rem)] text-ice-50">
-            Winning the deal is the halfway point.
+            One loop, from first signal to renewal.
           </h2>
           <p className="prose-w mt-5 text-[1.125rem] leading-[1.55] text-ice-200">
-            Onboarding, renewal dates and check-ins sit on the same account
-            timeline as the first signal. Your healthiest customers then sharpen
-            who gets ranked next, so each time round the list is better aimed.
+            Every account keeps one timeline, starting with the signal that
+            put it on your list. Onboarding, check-ins and referrals join that
+            timeline next, so your best customers shape who gets ranked after
+            them.
           </p>
         </div>
 
@@ -145,11 +146,11 @@ export function Orbit() {
                   <ellipse cx={CX} cy={CY} rx={RX} ry={RY} fill="none" stroke="#e3ecff" strokeOpacity="0.22" strokeWidth="1.5" strokeDasharray="2 9" strokeLinecap="round" />
                 </g>
 
-                {/* the ICP at the focus */}
+                {/* the ideal customer at the focus */}
                 <circle cx={SUN.x} cy={SUN.y} r="92" fill="url(#sun)" />
                 <circle cx={SUN.x} cy={SUN.y} r="13" fill="#ffd08a" />
 
-                {/* the loop closing: referral and lookalikes refine the ICP */}
+                {/* the loop closing: referrals refine who gets ranked next */}
                 <path
                   d={`M ${NODES[9].x.toFixed(1)} ${NODES[9].y.toFixed(1)} Q ${(NODES[9].x + 30).toFixed(1)} ${SUN.y + 30} ${SUN.x - 24} ${SUN.y + 18}`}
                   fill="none"
@@ -169,10 +170,10 @@ export function Orbit() {
               </svg>
 
               <p
-                className="datum absolute -translate-x-1/2 text-center text-[0.875rem] leading-tight font-medium text-kesar-300 sm:text-[0.9375rem]"
+                className="datum absolute w-[5.5rem] -translate-x-1/2 text-center text-[0.875rem] leading-[1.1] font-medium text-kesar-300 sm:text-[0.9375rem]"
                 style={{ left: pct(SUN.x, W), top: pct(SUN.y + 26, H) }}
               >
-                Your ICP
+                Your ideal customer
               </p>
 
               {NODES.map((n, i) => {
@@ -243,7 +244,7 @@ export function Orbit() {
               </button>
             </div>
             <p className="datum mt-6 max-w-[24rem] text-[0.9375rem] leading-snug text-ice-400">
-              Steps 8 to 10 reach early-access teams after the prospecting core.
+              Steps 8 to 10 come after the first release.
             </p>
           </div>
         </div>

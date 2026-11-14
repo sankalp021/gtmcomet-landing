@@ -2,8 +2,8 @@ import { Wrap } from "./Section";
 
 const QA: [string, string][] = [
   [
-    "How is this different from an AI SDR?",
-    "An AI SDR sends messages on your behalf. GtmComet sends nothing. It does the research and the first draft, then hands over to you. Replies in these markets usually need your judgment, and automated WhatsApp at volume can get a number restricted.",
+    "How is this different from tools that send for you?",
+    "Those tools message buyers on your behalf. GtmComet sends nothing. It does the research and the first draft, then hands over to you. Replies in these markets usually need your judgment, and automated WhatsApp at volume can get a number restricted.",
   ],
   [
     "Do I need to be on LinkedIn?",
@@ -11,7 +11,7 @@ const QA: [string, string][] = [
   ],
   [
     "Where do the contacts come from?",
-    "Licensed data providers, tried in order until one returns a verified contact. Every field records the provider, the date and whether it was verified. Lookups run only for accounts you open or shortlist.",
+    "From licensed data providers. Each detail shows where it came from, when, and whether it was verified.",
   ],
   [
     "What access do you need to my inbox?",
@@ -19,7 +19,7 @@ const QA: [string, string][] = [
   ],
   [
     "Which languages does it write in?",
-    "English, and Hinglish in Roman script. Arabic, with right-to-left editing, comes with the Saudi launch.",
+    "English, and Hinglish in Roman script. Arabic is next.",
   ],
   [
     "Does it replace my CRM?",
@@ -27,7 +27,7 @@ const QA: [string, string][] = [
   ],
   [
     "What does early access involve?",
-    "We set up your workspace with you and run the early weeks hands-on. We note your reply rate for the four weeks before you start, then measure against it. You tell us where the list or the drafts were wrong. Early access is paid from the start.",
+    "We set up your workspace with you and stay close for the first weeks. You tell us where the list or the drafts were wrong, and we fix it fast. Early access is paid from the start.",
   ],
 ];
 
