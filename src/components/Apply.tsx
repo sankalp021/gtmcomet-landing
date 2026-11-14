@@ -2,7 +2,7 @@
 
 import clsx from "clsx";
 import { useId, useState } from "react";
-import { setSite, useSite } from "@/lib/apply";
+import { setSite, setSource, useSite, useSource, type Source } from "@/lib/apply";
 import { CONTACT } from "@/lib/site";
 import { Segmented } from "./Segmented";
 import { Wrap } from "./Section";
@@ -10,22 +10,25 @@ import { Wrap } from "./Section";
 type Where = "India" | "the UAE" | "India and the Gulf";
 
 const STEPS = [
-  "You send us the message this form writes.",
-  "We set up your workspace with you, on a call.",
-  "Your first ranked list arrives, with drafts.",
+  "Send us your website or a PDF, with the message this form writes.",
+  "We work out your ideal customer, search the web for companies that match, and send back 25 accounts with drafts. Free.",
+  "If you stay, you keep today's price for as long as you are a customer. That holds for the first ten teams.",
 ];
 
-function compose(name: string, site: string, where: Where, what: string) {
+function compose(name: string, company: string, source: Source, where: Where, what: string) {
   const sells = what.trim()
     ? `We sell ${what.trim().replace(/\.$/, "")} to buyers in ${where}.`
     : `Our buyers are in ${where}.`;
-  return `Hi, this is ${name.trim()} from ${site.trim()}. ${sells} I'd like early access to GtmComet.`;
+  const read = source === "pdf" ? " I'm attaching a PDF about what we sell." : "";
+  return `Hi, this is ${name.trim()} from ${company.trim()}. ${sells}${read} I'd like my free first list from GtmComet.`;
 }
 
 export function Apply() {
   const id = useId();
   const site = useSite();
+  const source = useSource();
   const [name, setName] = useState("");
+  const [company, setCompany] = useState("");
   const [what, setWhat] = useState("");
   const [where, setWhere] = useState<Where>("India");
   const [message, setMessage] = useState<string | null>(null);
@@ -35,9 +38,11 @@ export function Apply() {
   function write(e: React.FormEvent) {
     e.preventDefault();
     if (!name.trim()) return setError("Add your name so we know who is writing.");
-    if (!site.trim()) return setError("Add your company website. It is where your setup starts.");
+    if (source === "website" && !site.trim())
+      return setError("Add your company website, or choose PDF if you would rather send a document.");
+    if (source === "pdf" && !company.trim()) return setError("Add your company name.");
     setError(null);
-    setMessage(compose(name, site, where, what));
+    setMessage(compose(name, source === "pdf" ? company : site, source, where, what));
   }
 
   async function copy() {
@@ -54,7 +59,7 @@ export function Apply() {
   const text = encodeURIComponent(message ?? "");
   const wa = CONTACT.whatsapp ? `https://wa.me/${CONTACT.whatsapp}?text=${text}` : null;
   const mail = CONTACT.email
-    ? `mailto:${CONTACT.email}?subject=${encodeURIComponent(`Early access: ${site.trim()}`)}&body=${text}`
+    ? `mailto:${CONTACT.email}?subject=${encodeURIComponent(`Free first list: ${(source === "pdf" ? company : site).trim()}`)}&body=${text}`
     : null;
 
   const field =
@@ -74,13 +79,13 @@ export function Apply() {
           <div className="grid gap-x-14 gap-y-12 lg:grid-cols-12">
             <div className="lg:col-span-6">
               <h2 className="voice text-[clamp(2.4rem,5.4vw,4.75rem)] text-ice-50">
-                Be one of the first ten.
+                Your first list is free.
               </h2>
               <p className="prose-w mt-6 text-[1.1875rem] leading-[1.5] text-ice-200">
                 Somewhere in your market this week, a company is hiring for
-                the problem you solve. Early access is ten teams in India and
-                the UAE, each set up by us. Tell us what you sell and who buys
-                it.
+                the problem you solve. Send us your website or a PDF, and we
+                send back the twenty-five companies most worth your time, each
+                with its reason and a draft.
               </p>
 
               <ol className="mt-10 max-w-[30rem]">
@@ -97,6 +102,22 @@ export function Apply() {
               <div className="rounded-[24px] bg-night-800/70 p-5 ring-1 ring-ice-100/15 backdrop-blur-md sm:p-7">
                 {message === null ? (
                   <form onSubmit={write} noValidate>
+                    <div className="mb-5">
+                      <p className="mb-1.5 text-[0.9375rem] text-ice-200">What should we read?</p>
+                      <Segmented
+                        label="What should we read?"
+                        tone="night"
+                        value={source}
+                        onChange={(v) => {
+                          setError(null);
+                          setSource(v);
+                        }}
+                        options={[
+                          { value: "website", label: "Website" },
+                          { value: "pdf", label: "Deck or PDF" },
+                        ]}
+                      />
+                    </div>
                     <div className="grid gap-4 sm:grid-cols-2">
                       <label className="block text-[0.9375rem] text-ice-200" htmlFor={`${id}-name`}>
                         Your name
@@ -109,22 +130,42 @@ export function Apply() {
                           className={field}
                         />
                       </label>
-                      <label className="block text-[0.9375rem] text-ice-200" htmlFor={`${id}-site`}>
-                        Company website
-                        <input
-                          id={`${id}-site`}
-                          name="website"
-                          inputMode="url"
-                          autoComplete="url"
-                          autoCapitalize="none"
-                          spellCheck={false}
-                          placeholder="yourcompany.com"
-                          value={site}
-                          onChange={(e) => setSite(e.target.value)}
-                          className={field}
-                        />
-                      </label>
+                      {source === "website" ? (
+                        <label className="block text-[0.9375rem] text-ice-200" htmlFor={`${id}-site`}>
+                          Company website
+                          <input
+                            id={`${id}-site`}
+                            name="website"
+                            inputMode="url"
+                            autoComplete="url"
+                            autoCapitalize="none"
+                            spellCheck={false}
+                            placeholder="yourcompany.com"
+                            value={site}
+                            onChange={(e) => setSite(e.target.value)}
+                            className={field}
+                          />
+                        </label>
+                      ) : (
+                        <label className="block text-[0.9375rem] text-ice-200" htmlFor={`${id}-company`}>
+                          Company name
+                          <input
+                            id={`${id}-company`}
+                            name="company"
+                            autoComplete="organization"
+                            value={company}
+                            onChange={(e) => setCompany(e.target.value)}
+                            className={field}
+                          />
+                        </label>
+                      )}
                     </div>
+                    {source === "pdf" && (
+                      <p className="mt-3 text-[0.9375rem] leading-snug text-ice-300">
+                        A pitch deck, brochure or case study works. You attach it in the chat or
+                        email that opens next.
+                      </p>
+                    )}
 
                     <label className="mt-4 block text-[0.9375rem] text-ice-200" htmlFor={`${id}-what`}>
                       What you sell, in a line <span className="text-ice-400">(optional)</span>
@@ -206,9 +247,14 @@ export function Apply() {
                       </p>
                     )}
 
+                    {source === "pdf" && (
+                      <p className="mt-4 rounded-[12px] bg-kesar-500/15 px-3.5 py-3 text-[0.9375rem] leading-snug text-kesar-300">
+                        Attach your PDF in the chat or email before you send.
+                      </p>
+                    )}
                     <p className="datum mt-4 text-[0.9375rem] leading-snug text-ice-400">
                       {wa || mail
-                        ? "You press send. We reply on the same channel."
+                        ? "You press send. Your free list comes back on the same channel."
                         : "Send it to the founder who shared this page with you."}
                     </p>
                     <button

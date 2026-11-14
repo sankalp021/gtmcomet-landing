@@ -17,8 +17,9 @@ export function Pricing() {
           <div>
             <Heading>Priced for where you sell.</Heading>
             <Lede>
-              Planned prices, {market === "in" ? "by card or UPI" : "by card"}. They
-              may change before launch.
+              Your first list is free. After that, planned prices,{" "}
+              {market === "in" ? "by card or UPI" : "by card"}. The first ten teams keep
+              today&rsquo;s price for as long as they stay.
             </Lede>
           </div>
           <Segmented

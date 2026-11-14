@@ -6,12 +6,16 @@ const QA: [string, string][] = [
     "Those tools message buyers on your behalf. GtmComet sends nothing. It does the research and the first draft, then hands over to you. Replies in these markets usually need your judgment, and automated WhatsApp at volume can get a number restricted.",
   ],
   [
+    "How does it find my ideal customers?",
+    "It reads your website, or a deck or PDF you send, and drafts a profile of who buys from you: countries, industries, company size, buyer roles. You correct it. Then it searches the public web for companies that fit, and keeps only the ones showing a buying signal.",
+  ],
+  [
     "Which buying signals does it watch?",
     "Companies hiring for roles you sell to, raising funding, opening an office, plant or new entity, exhibiting at a trade show, or switching software. In India it also reads public tenders. Every signal shows where it was seen and how long it stays relevant.",
   ],
   [
-    "How soon do I get a list?",
-    "Your first list comes out of the setup call, and a fresh one arrives every week after that.",
+    "What is free, exactly?",
+    "Your first list: twenty-five accounts that match your ideal customer, each with its reason and a draft. You pay only if you stay, and then you get a fresh list every week.",
   ],
   [
     "Do I need to be on LinkedIn?",
@@ -35,7 +39,7 @@ const QA: [string, string][] = [
   ],
   [
     "What does early access involve?",
-    "We set up your workspace with you and stay close for the first weeks. You tell us where the list or the drafts were wrong, and we fix it fast. Early access is paid from the start.",
+    "Your first list is free. If you stay, we set up your workspace with you and stay close for the first weeks, and the first ten teams keep today's price for as long as they are customers.",
   ],
 ];
 

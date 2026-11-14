@@ -5,7 +5,7 @@ The decisions behind the page, so the next change stays consistent with them.
 ## What the page is for
 
 Founders of 5 to 30 person B2B companies in India and the UAE, who sell on
-WhatsApp and email. The page has one job: get them to ask for early access.
+WhatsApp and email. The page has one job: get them to ask for their free first list.
 
 ## Concept
 

@@ -49,7 +49,7 @@ const LINKS = [
   ["#rules", "Your market"],
   ["#pricing", "Pricing"],
   ["#questions", "Questions"],
-  ["#apply", "Early access"],
+  ["#apply", "Free first list"],
 ];
 
 export function Footer() {

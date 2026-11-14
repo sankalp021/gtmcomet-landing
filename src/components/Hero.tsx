@@ -1,20 +1,15 @@
 "use client";
 
 import { CorridorMap } from "./CorridorMap";
-import { setSite, useSite } from "@/lib/apply";
+import { goToRequest, setSite, setSource, useSite } from "@/lib/apply";
 
 export function Hero() {
   const site = useSite();
 
   function start(e: React.FormEvent) {
     e.preventDefault();
-    const apply = document.getElementById("apply");
-    apply?.scrollIntoView({ block: "start" });
-    // Land the cursor on the first thing still to fill in
-    window.setTimeout(
-      () => apply?.querySelector<HTMLInputElement>('input[name="name"]')?.focus({ preventScroll: true }),
-      700,
-    );
+    setSource("website");
+    goToRequest();
   }
 
   return (
@@ -34,7 +29,7 @@ export function Hero() {
       <div className="mx-auto flex max-w-[1240px] flex-col justify-end px-5 pt-2 pb-12 sm:px-8 min-[900px]:min-h-[100svh] min-[900px]:pt-28 min-[900px]:pb-20">
         <p className="enter-fade mb-5 flex items-center gap-2.5 text-[0.9375rem] text-ice-200 [--delay:60ms]">
           <span aria-hidden className="mt-[0.45em] h-2 w-2 shrink-0 self-start rounded-full bg-kesar-500" />
-          Early access for ten teams in India and the UAE
+          Early access is open in India and the UAE. Your first list is free.
         </p>
 
         <h1 className="voice enter max-w-[13ch] text-[clamp(2.75rem,5.6vw,5.25rem)] text-ice-50 [--dur:800ms] [--rise-blur:6px] [--rise:18px]">
@@ -42,9 +37,16 @@ export function Hero() {
         </h1>
 
         <p className="enter mt-6 max-w-[35rem] text-[1.125rem] leading-[1.5] text-pretty text-ice-200 [--delay:110ms] [--dur:700ms] [--rise:12px] sm:text-[1.1875rem]">
-          <span className="max-sm:hidden">GtmComet is a sales copilot for founder-led B2B teams in India and the Gulf. It spots companies that are hiring, raising money or expanding, ranks</span>
-          <span className="sm:hidden">A sales copilot for founder-led B2B teams in India and the Gulf. It ranks</span>{" "}
-          the accounts worth your time, drafts the first message in your voice, and leaves the sending to you.
+          <span className="max-sm:hidden">
+            A sales copilot for founder-led B2B teams in India and the Gulf. It works out your ideal
+            customer from your website or a PDF, searches the public web for companies that match and
+            are hiring, raising money or expanding, and drafts the first message in your voice.
+          </span>
+          <span className="sm:hidden">
+            A sales copilot for founder-led B2B teams in India and the Gulf. It works out your ideal
+            customer, searches the web for companies that match, and drafts the first message.
+          </span>{" "}
+          You do the sending.
         </p>
 
         <form
@@ -67,17 +69,21 @@ export function Hero() {
             className="h-12 w-full min-w-0 shrink-0 rounded-[14px] sm:w-auto sm:flex-1 sm:shrink bg-ice-100/[0.08] px-4 text-ice-50 ring-1 ring-ice-100/20 ring-inset placeholder:text-ice-400 focus-visible:ring-2 focus-visible:ring-kesar-500 focus-visible:outline-none sm:bg-transparent sm:ring-0 sm:focus-visible:ring-0"
           />
           <button type="submit" className="btn btn-kesar">
-            Get early access
+            Get my free list
           </button>
         </form>
-        <p className="enter mt-4 text-[1rem] text-ice-300 [--delay:240ms] [--dur:700ms] [--rise:6px]">
-          Setup starts from your website.{" "}
-          <a
-            href="#list"
-            className="font-medium text-ice-100 underline decoration-ice-100/40 underline-offset-4 [@media(hover:hover)_and_(pointer:fine)]:hover:decoration-ice-100"
+        <p className="enter mt-4 max-w-[35rem] text-[1rem] leading-[1.45] text-ice-300 [--delay:240ms] [--dur:700ms] [--rise:6px]">
+          Your first 25 accounts, with drafts, are free. No website?{" "}
+          <button
+            type="button"
+            onClick={() => {
+              setSource("pdf");
+              goToRequest();
+            }}
+            className="press font-medium text-ice-100 underline decoration-ice-100/40 underline-offset-4 [@media(hover:hover)_and_(pointer:fine)]:hover:decoration-ice-100"
           >
-            See a sample week
-          </a>
+            Send a deck or PDF instead
+          </button>
         </p>
 
         <p className="enter-fade datum mt-8 text-[0.875rem] text-ice-400 [--delay:500ms] min-[900px]:absolute min-[900px]:right-8 min-[900px]:bottom-8 min-[900px]:mt-0">

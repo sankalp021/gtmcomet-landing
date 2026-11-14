@@ -31,7 +31,7 @@ export function ListSection() {
                 {data.roles}
               </dd>
               <dt className="datum text-ink-3">Starts from</dt>
-              <dd className="font-medium">Your website, plus any deck or case study you add</dd>
+              <dd className="font-medium">Your website, a deck, or any PDF about what you sell</dd>
             </dl>
             <div className="mt-9 max-w-[30rem] border-t border-ink/10 pt-6">
               <h3 className="voice-sm text-[1.1875rem]">Sharper every week</h3>

@@ -15,5 +15,5 @@ export const SITE = {
   name: "GtmComet",
   title: "GtmComet: who to contact this week, and why now",
   description:
-    "A sales copilot for founder-led B2B teams in India and the Gulf. It ranks the accounts worth your time, drafts the first message in your voice for WhatsApp or email, and leaves the sending to you.",
+    "A sales copilot for founder-led B2B teams in India and the Gulf. It works out your ideal customer from your website or a PDF, searches the web for companies that match and are ready to buy, and drafts the first message in your voice. Your first list is free.",
 };

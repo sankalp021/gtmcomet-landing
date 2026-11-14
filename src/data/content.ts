@@ -508,13 +508,13 @@ export type OrbitStep = {
 
 export const ORBIT: OrbitStep[] = [
   {
-    title: "Paste your website",
+    title: "Send your website or a PDF",
     body: "You get a summary of what you sell, a first guess at your ideal customer, and a few angles to pitch. Edit any of them.",
     half: "before",
   },
   {
     title: "Ideal customer and signals",
-    body: "You set countries, industries, company size and buyer roles. Buying signals are ranked against them.",
+    body: "You confirm countries, industries, company size and buyer roles. It searches the web for companies that match.",
     half: "before",
   },
   {
